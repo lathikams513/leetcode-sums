@@ -29,6 +29,7 @@ class Solution {
         if (left.val != right.val) 
          return false;
 
-        return left.val==right.val && isMirror(left.left, right.right) && isMirror(left.right, right.left);
+        return left.val==right.val && isMirror(left.left, right.right)
+         && isMirror(left.right, right.left);
     }
 }
