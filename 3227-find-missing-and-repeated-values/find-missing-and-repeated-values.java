@@ -6,7 +6,7 @@ class Solution {
         int n = grid.length;
         Set<Integer> set = new HashSet<>();
 
-        int repeat = -1;
+        int repeat = 0;
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
