@@ -15,8 +15,8 @@
  */
 class Solution {
     public TreeNode findmin(TreeNode root){
-        while(root.left!=null){
-            root=root.left;
+        while(root.right!=null){
+            root=root.right;
         }
         return root;
     }
@@ -39,9 +39,9 @@ class Solution {
                 return root.left;
             }
             else{
-                TreeNode temp=findmin(root.right);
+                TreeNode temp=findmin(root.left);
                 root.val=temp.val;
-                root.right=deleteNode(root.right,temp.val);
+                root.left=deleteNode(root.left,temp.val);
             }
 
         }
