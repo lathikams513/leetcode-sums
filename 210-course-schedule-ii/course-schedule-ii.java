@@ -8,15 +8,15 @@ class Solution {
         for(int i = 0; i < numCourses; i++){
             list.add(new ArrayList<>());
         }
-        for(int[] n : prerequisites){
-            list.get(n[1]).add(n[0]);
-        }
         int[] ind = new int[numCourses];
-        for(int i = 0; i < numCourses; i++){
-            for(int nei : list.get(i)){
-                ind[nei]++;
-            }
+        for(int[] n : prerequisites){
+            int a=n[1];
+            int b=n[0];
+            list.get(a).add(b);
+                ind[b]++;
         }
+       
+       
 
         Queue<Integer> q = new LinkedList<>();
         for(int i = 0; i < numCourses; i++){
