@@ -8,7 +8,7 @@ class Solution {
         }
 
         for(int[] n : prerequisites){
-            list.get(n[0]).add(n[1]);
+            list.get(n[1]).add(n[0]);
         }
         int[] ind = new int[numCourses];
         for(int i = 0; i < numCourses; i++){
@@ -27,7 +27,6 @@ class Solution {
         while(!q.isEmpty()){
             int node = q.poll();
             count++;
-
             for(int nei : list.get(node)){
                 ind[nei]--;
                 if(ind[nei] == 0){
