@@ -1,25 +1,33 @@
+import java.util.*;
+
 class Solution {
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
-        ArrayList<ArrayList<int[]>> adj = new ArrayList<>();
+        
+        List<int[]>[] graph = new ArrayList[n];
         for(int i = 0; i < n; i++) {
-            adj.add(new ArrayList<>());
+            graph[i] = new ArrayList<>();
         }
+        
         for(int[] f : flights) {
-            adj.get(f[0]).add(new int[]{f[1], f[2]});
+            graph[f[0]].add(new int[]{f[1], f[2]});
         }
+        
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{src, 0, 0});
+        
         int[] dist = new int[n];
         Arrays.fill(dist, Integer.MAX_VALUE);
         dist[src] = 0;
-         while(!q.isEmpty()) {
+        
+        while(!q.isEmpty()) {
             int[] curr = q.poll();
             int node = curr[0];
             int cost = curr[1];
             int stops = curr[2];
+            
             if(stops > k) continue;
             
-            for(int[] edge : adj.get(node)) {
+            for(int[] edge : graph[node]) {
                 int next = edge[0];
                 int price = edge[1];
                 
